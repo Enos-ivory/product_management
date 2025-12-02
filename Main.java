@@ -5,6 +5,7 @@ public class Main extends Meneger {
 
      Meneger m = new Meneger();
      int repite = m.menu();
+     m.scanner.nextLine();
 
      for (int i = 1; i <= repite; i++){
          m.cadastro();
@@ -14,6 +15,7 @@ public class Main extends Meneger {
          m.subMenu();
          System.out.println("digite a opcao desejada: ");
          option = scanner.nextInt();
+         m.scanner.nextLine();
 
          switch (option){
              case 1:

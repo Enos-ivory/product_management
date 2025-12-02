@@ -20,7 +20,8 @@ public class Meneger extends Produto {
         System.out.println("1- LISTAR");
         System.out.println("2- FILTRAR POR CATEGORIA");
         System.out.println("3- ESTATISTICAS");
-        System.out.println("4- sair");
+        System.out.println("4- DELETAR");
+        System.out.println("5- sair");
       return null;
     }
 
@@ -30,15 +31,17 @@ public class Meneger extends Produto {
         scanner.nextLine();
 
         System.out.println("categoria: ");
-        String ktgoria = scanner.next();
+        String ktgoria = scanner.nextLine();
 
         System.out.println("valor: ");
         double valor = scanner.nextDouble();
+        scanner.nextLine();
 
         Produtos produtos = new Produtos(nome,ktgoria,valor);
         lista.add(produtos);
         return null;
     }
+
     public void listarProdutos(){
         System.out.println(lista.toString());
     }
@@ -80,6 +83,21 @@ public class Meneger extends Produto {
         System.out.println("\nO mais barato " + lista.stream()
                 .min(Comparator.comparingDouble(Produtos::getPrice)));
         System.out.println("Quantidade de itens cadastrados: " + quantidade);
+        System.out.println("\nExibindo a list ordenada: ");
+        System.out.println(lista.stream().sorted().toString());
+    }
+    public void delete(){
+        System.out.println("digite o nome do obejeto a ser removido: ");
+        String name = scanner.nextLine();
+         Produtos produtoChave = new Produtos(name);
+         Boolean foiRmovido = lista.remove(produtoChave);
+         if (foiRmovido){
+             System.out.println("produto "+name +" removido ");
+
+         }else {
+             System.out.println(" ERRO Produto "+name+" não foi encomtrado na lista.");
+         }
+        System.out.println("Lista atual\n "+ lista.toString());
     }
 
 }
