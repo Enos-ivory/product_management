@@ -16,19 +16,23 @@ public class Meneger extends Produto {
          return cont;
     }
     public String subMenu(){
+        System.out.println("------------------------------------");
+        System.out.println("             MENU PRINCIPAL");
+        System.out.println("------------------------------------");
         System.out.println("Digite: ");
         System.out.println("1- LISTAR");
         System.out.println("2- FILTRAR POR CATEGORIA");
         System.out.println("3- ESTATISTICAS");
         System.out.println("4- DELETAR");
-        System.out.println("5- sair");
+        System.out.println("5- ADCIONAR");
+        System.out.println("6- sair");
       return null;
     }
 
     public Produtos cadastro(){
         System.out.println("digite o nome do objeto a ser cadastrado e categoria:  ");
-        String nome = scanner.next();
-        scanner.nextLine();
+        String nome = scanner.nextLine();
+
 
         System.out.println("categoria: ");
         String ktgoria = scanner.nextLine();
@@ -84,14 +88,17 @@ public class Meneger extends Produto {
                 .min(Comparator.comparingDouble(Produtos::getPrice)));
         System.out.println("Quantidade de itens cadastrados: " + quantidade);
         System.out.println("\nExibindo a list ordenada: ");
-        System.out.println(lista.stream().sorted().toString());
+                 lista.stream()
+                .sorted()
+                .forEach(System.out::println);
     }
     public void delete(){
         System.out.println("digite o nome do obejeto a ser removido: ");
         String name = scanner.nextLine();
-         Produtos produtoChave = new Produtos(name);
-         Boolean foiRmovido = lista.remove(produtoChave);
-         if (foiRmovido){
+        Produtos produtoChave = new Produtos(name);
+        Boolean foiRmovido = lista.remove(produtoChave);
+
+        if (foiRmovido){
              System.out.println("produto "+name +" removido ");
 
          }else {
