@@ -2,12 +2,12 @@ package Desafio.cadastro_de_produtos;
 
 import java.util.Objects;
 
-public class Produtos implements Comparable<Produtos>  {
+public class Produto implements Comparable<Produto>  {
     private String name;
     private  String category;
     private double price;
 
-    public Produtos(String name, String category, double price) {
+    public Produto(String name, String category, double price) {
         this.name = name;
         this.category = category;
         this.price = price;
@@ -25,7 +25,7 @@ public class Produtos implements Comparable<Produtos>  {
         return price;
     }
     /// constructor of a temporary object
-    public Produtos(String name){
+    public Produto(String name){
         this.name = name;
     }
 
@@ -39,7 +39,7 @@ public class Produtos implements Comparable<Produtos>  {
     }
 
     @Override
-    public int compareTo(Produtos o) {
+    public int compareTo(Produto o) {
         return 0;
     }
     @Override
@@ -48,9 +48,9 @@ public class Produtos implements Comparable<Produtos>  {
 
         if (obj == null || getClass() != obj.getClass()) return false;
 
-        Produtos produtos = (Produtos) obj;
+        Produto produto = (Produto) obj;
 
-        return Objects.equals(name, produtos.name);
+        return Objects.equals(name, produto.name);
 
     }
 
